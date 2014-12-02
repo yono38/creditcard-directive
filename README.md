@@ -1,7 +1,7 @@
 # Credit Card Directive: A Coding Challenge in AngularJS
 ## By Jason Schapiro
 
-**See the live version on [creditcard.jasonschapiro.com](creditcard.jasonschapiro.com)**
+**See the live version on http://creditcard.jasonschapiro.com**
 
 FEATURES
 ===========
