@@ -1,0 +1,63 @@
+// Using credit-card-wrapper class as namespace
+.credit-card-wrapper {
+  /* Basic Styling */
+  background-color: #DEEFFA;
+  max-width: 230px;
+  padding: 8px;
+  margin-left: 12px;
+  border-left: 6px solid #C7E2F4;
+
+  /* Specific styling for sprite */
+  .credit-card-icon {
+    width: 28px;
+    height: 21px;
+    position: absolute;
+    background-image: url(../images/cardlogos_sprite.png);
+    background-position: 0 -21px;
+
+    /* Didn't have time to 3D flip, but I did this instead */
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+
+  }
+
+  /* These are handling for the various sprite icons */
+  .credit-card-icon.amex {
+    background-position: 0 0;
+  }
+  .credit-card-icon.visa {
+    background-position: 0 -84px;
+  }
+  .credit-card-icon.mastercard {
+    background-position: 0 -63px;
+  }
+  .credit-card-icon.discover {
+    background-position: 0 -42px;
+  }
+
+  /* TODO Figure out how to separate the input number groups into sets of four */
+  input {
+    /* Hide the fact that the input is *inside* the box */
+    background: transparent;
+    border: none;
+    outline: none;
+    /* This positioning might not always work, I'd need to do more testing */
+    position: relative;
+    left: 44px;
+  }
+  /* Hide the spin box */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  }
+}
+
+/* ng-class stuff for result of Luhn Check */
+.credit-card-wrapper.valid {
+  background-color: #449d44;
+}
+.credit-card-wrapper.invalid {
+  background-color: #e04e63;
+}

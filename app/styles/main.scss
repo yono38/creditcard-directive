@@ -1,0 +1,82 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+// endbower
+
+@import 'creditcard';
+
+// Set Up the Font and Background Color
+body {
+  font-family: 'Lato', sans-serif;
+  background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+  background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -o-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  background: linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=1 );
+}
+
+#main {
+  margin-top: 50px;
+  text-align: center;
+  pre.language-markup {
+    max-width: 275px;
+    margin: auto;
+    code.language-markup {
+      overflow: hidden;
+    }
+    code.language-markup::before {
+      content: 'HTML';
+    }
+  }
+}
+
+.jumbotron {
+  max-width: 375px;
+  background-color: #8C8282;
+  margin: auto;
+}
+.footer {
+  padding-top: 50px;
+  text-align: center;
+}
+
+$blue1: #168add;
+$blue2: #007ee5;
+$blue3: #168eef;
+
+@mixin button-gradient($top, $bottom) {
+  background: linear-gradient(to bottom, $top 0%, $bottom 100%);
+  background: -o-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -ms-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -webkit-linear-gradient(top, $top 0%, $bottom 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $blue1), color-stop(100%, $blue2));
+  background: $top;
+}
+
+#add-card {
+  margin-top: 10px;
+  @include button-gradient($blue1, $blue2);
+  /* IE Stuff */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF168ADD', endColorstr='#FF007EE5', GradientType=0 );
+
+  border: 1px solid #0c6ebe;
+  color: white;
+  font-size: 16px;
+  padding: 8px 82px;
+  border-radius: 3px;
+  border-bottom: #285e8e solid 3px;
+}
+
+/* Hide default outline on my custom button */
+#add-card:focus {
+  outline:0;
+}
+#add-card:active {
+  @include button-gradient($blue3, $blue2);
+  /* IE Stuff */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF168EEF', endColorstr='#FF007EE5', GradientType=0 );
+}
